@@ -9,19 +9,40 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    // remove the Status iOS Bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
+    // On the Start of App do this
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        print("test")
+        // Setup the URL Link
+        let url = NSURL ( string: "http://mdlwp.com/demo/" )
+        
+        // Setup your web view object
+        let requestObj = NSURLRequest(URL: url!)
+        
+        // Place the URL Object inside of your Web View Window
+        currentWebAppView.loadRequest(requestObj)
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
-}
+    
+    
+    // Link StoryBoard to View Controller
+    @IBOutlet weak var currentWebAppView: UIWebView!
+    
+
+    
+    
+    
+    
+} // END of ViewController
 
